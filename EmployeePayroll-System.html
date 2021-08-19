@@ -28,7 +28,7 @@
         </div>
         <div class="row-content">
             <label class = "label"for="profile">Profile Image</label>
-            <div class="profile-content">
+            <div class="profile-content" >
                 <label>
             <input type="radio" id="profile1" name="profile"
             value="./assets/profile-images/Ellipse -3.png" required>
@@ -50,6 +50,36 @@
             <img src="./assets/profile-images/Ellipse -7.png" alt="profile4" class="profile">
         </label>
         </div>
+        </div>
+        <div class="row-content">
+            <label class = "label" for="gender">Gender</label>
+            <div class="gender-content">
+                <input type="radio" id="male" name="gender" value="male">
+                <label class = "text "for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label class = "text" for="female">Female</label>
+            </div>
+        </div>
+        <div class="row-content">
+            <label class ="label" for="department">Department</label>
+            <div class="department-content">
+                <input type="checkbox" class="checkbox" id="hr" name="hr" value="HR">
+                <label class = "text" for="hr">HR</label>
+                <input type="checkbox" class="checkbox" id="sales" name="sales" value="Sales">
+                <label class = "text" for="sales">Sales</label>
+                <input type="checkbox" class="checkbox" id="finance" name="finance" value="Finance">
+                <label class = "text" for="finance">Finance</label>
+                <input type="checkbox" class="checkbox" id="engineer" name="engineer" value="Engineer">
+                <label class = "text" for="engineer">Engineer</label>
+                <input type="checkbox" class="checkbox" id="others" name="others" value="others">
+                <label class = "text" for="others">Others</label>
+            </div>
+        </div>
+        <div class="row-content">
+            <label class="label" for="salary">Salary</label>
+            <input type="range" class="input" id="salary" min="300000" max="500000" step="100" name="salary"
+            value="400000">
+            <output class="salary-output text" for="salary">400000</output>
         </div>
     </form>
     </div>
