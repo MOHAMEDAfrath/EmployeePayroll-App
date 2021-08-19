@@ -110,4 +110,15 @@ form{
 output{
     margin-left: 15px;
 }
+select{
+    padding:9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+    margin-right: 15px;
+}
 
