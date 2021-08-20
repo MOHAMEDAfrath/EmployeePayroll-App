@@ -3,15 +3,16 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee payroll form</title>
+    <script data-main="scripts/app"></script>
     <!-- Link for accessing the goole fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
     />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;00;600&display=swap"
-      rel="stylesheet"
-    />
+       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300;1,400&display=swap" rel="stylesheet"/>
+  
     <!-- external css -->
     <link rel="stylesheet" href="./css/EmployeePayroll.css" />
   </head>
@@ -266,12 +267,19 @@
             >Cancel</a
           >
           <div class="submit-reset">
-            <button type="submit" class="button submitButton">Submit</button>
+            <button type="submit" class="button submitButton" onclick="onSubmit()">Submit</button>
             <button type="reset" class="button resetButton">Reset</button>
           </div>
         </div>
       </form>
     </div>
   </body>
-  <script src="./js/EmployeePayroll.js"></script>
+  <script src="./js/EmployeePayroll.js">
+  </script>
+  <script>  const salary = document.querySelector("#salary");
+    const output = document.querySelector(".salary-output");
+    output.textContent = salary.value;
+    salary.addEventListener("input", function () {
+      output.textContent = salary.value;
+    })</script>
 </html>
