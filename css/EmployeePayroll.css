@@ -154,6 +154,12 @@ select{
     border-radius: 5px;
     cursor: pointer;
 }
+error{
+    margin-left: 10px;
+    font-style: italic;
+    color: red;
+    font-size: 12px;
+}
 /* Hover to change color when mouse placed over the button */
 .button:hover{
     background-color: #82a70c;

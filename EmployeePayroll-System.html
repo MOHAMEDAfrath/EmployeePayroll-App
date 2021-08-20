@@ -11,8 +11,10 @@
     />
 
     <link
-       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300;1,400&display=swap" rel="stylesheet"/>
-  
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- external css -->
     <link rel="stylesheet" href="./css/EmployeePayroll.css" />
   </head>
@@ -27,7 +29,7 @@
       </div>
     </header>
     <div class="form-content">
-        <!-- form starts here -->
+      <!-- form starts here -->
       <form>
         <div class="form-head">Employee Payroll Form</div>
         <div class="row-content">
@@ -41,6 +43,7 @@
             placeholder="Enter Your Name..."
             required
           />
+          <error id="errName" for="name"></error>
         </div>
         <div class="row-content">
           <label class="label" for="profile">Profile Image</label>
@@ -107,70 +110,70 @@
         <div class="row-content">
           <label class="label" for="gender">Gender</label>
           <div class="gender-content">
-          <div >
-            <input type="radio" id="male" name="gender" value="male" />
-            <label class="text" for="male">Male</label>
+            <div>
+              <input type="radio" id="male" name="gender" value="male" />
+              <label class="text" for="male">Male</label>
             </div>
             <div>
-            <input type="radio" id="female" name="gender" value="female" />
-            <label class="text" for="female">Female</label>
-          </div>
+              <input type="radio" id="female" name="gender" value="female" />
+              <label class="text" for="female">Female</label>
+            </div>
           </div>
         </div>
         <div class="row-content">
           <label class="label" for="department">Department</label>
           <div class="department-content">
-              <!-- check boxes input type -->
-              <div>
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="hr"
-              name="hr"
-              value="HR"
-            />
-            <label class="text" for="hr">HR</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="sales"
-              name="sales"
-              value="Sales"
-            />
-            <label class="text" for="sales">Sales</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="finance"
-              name="finance"
-              value="Finance"
-            />
-            <label class="text" for="finance">Finance</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="engineer"
-              name="engineer"
-              value="Engineer"
-            />
-            <label class="text" for="engineer">Engineer</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="others"
-              name="others"
-              value="others"
-            />
-            <label class="text" for="others">Others</label>
-          </div>
+            <!-- check boxes input type -->
+            <div>
+              <input
+                type="checkbox"
+                class="checkbox"
+                id="hr"
+                name="department"
+                value="HR"
+              />
+              <label class="text" for="hr">HR</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                class="checkbox"
+                id="sales"
+                name="department"
+                value="Sales"
+              />
+              <label class="text" for="sales">Sales</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                class="checkbox"
+                id="finance"
+                name="department"
+                value="Finance"
+              />
+              <label class="text" for="finance">Finance</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                class="checkbox"
+                id="engineer"
+                name="department"
+                value="Engineer"
+              />
+              <label class="text" for="engineer">Engineer</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                class="checkbox"
+                id="others"
+                name="department"
+                value="others"
+              />
+              <label class="text" for="others">Others</label>
+            </div>
           </div>
         </div>
         <div class="row-content">
@@ -191,7 +194,7 @@
         <div class="row-content">
           <label class="label" for="startDate">Start Date</label>
           <!-- drop down for date -->
-          <div>
+          <div id="date">
             <select name="Day" id="day">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -249,6 +252,7 @@
               <option value="2015">2015</option>
               <option value="2014">2014</option>
             </select>
+            <error class = "errDate"for="date"></error>
           </div>
         </div>
         <div class="row-content">
@@ -262,24 +266,27 @@
           ></textarea>
         </div>
         <div class="button-div">
-            <!-- button for submit and reset -->
+          <!-- button for submit and reset -->
           <a href="./home.html" class="resetButton button cancelButton"
             >Cancel</a
           >
           <div class="submit-reset">
-            <button type="submit" class="button submitButton" onclick="onSubmit()">Submit</button>
+            <button
+              type="submit"
+              class="button submitButton"
+              onclick="createEmployeePayroll()"
+            >
+              Submit
+            </button>
             <button type="reset" class="button resetButton">Reset</button>
           </div>
         </div>
       </form>
     </div>
   </body>
-  <script src="./js/EmployeePayroll.js">
+  <script src="./js/EmployeePayroll.js"></script>
+  <script>
+
+    
   </script>
-  <script>  const salary = document.querySelector("#salary");
-    const output = document.querySelector(".salary-output");
-    output.textContent = salary.value;
-    salary.addEventListener("input", function () {
-      output.textContent = salary.value;
-    })</script>
 </html>
