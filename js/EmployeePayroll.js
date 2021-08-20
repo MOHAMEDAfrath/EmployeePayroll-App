@@ -4,6 +4,7 @@ class EmployeePayrollData {
     get Empname(){
         return this._name;
     }
+    //Validation for name using regex
     set Empname(value){
         let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
         if(nameRegex.test(value)){
