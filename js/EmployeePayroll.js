@@ -185,3 +185,27 @@ const createorUpdateLocal = (employeePayrollData) => {
   //JSON to String
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeeList));
 };
+const resetForm=()=>{
+    setValue('#name','');
+    unsetSelected('[name=profile]');
+    unsetSelected('[name=gender]');
+    unsetSelected('[name=department]');
+    document.querySelector('#salary').value='';
+    document.querySelector('#notes').value='';
+    document.querySelector('#day').value='1';
+    document.querySelector('#month').value='January';
+    document.querySelector('#year').value='2021';
+    setTextValue(".errDate", "");
+    setTextValue("#errName", "");
+    alert("Reseted!");
+}
+const setValue=(id,value)=>{
+    const element = document.querySelector(id);
+    element.value=value;
+}
+const unsetSelected=(property)=>{
+    let allItems = document.querySelectorAll(property);
+    allItems.forEach(item=>{
+        item.checked=false;
+    });
+}

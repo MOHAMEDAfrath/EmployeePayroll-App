@@ -163,12 +163,16 @@ error {
   font-size: 12px;
 }
 /* Hover to change color when mouse placed over the button */
-.button:hover {
+.submitButton:hover {
   background-color: #82a70c;
   color: #ffffff;
 }
 .submitButton {
   margin-right: 30px;
+}
+.resetButton:hover{
+    background-color: #707070;
+    color: #ffffff;
 }
 .cancelButton {
   text-decoration: none;
