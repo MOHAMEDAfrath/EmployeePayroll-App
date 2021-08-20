@@ -97,6 +97,14 @@ class EmployeePayrollData {
         " startDate: "+this.startDate+" Note: "+this.EmployeeNotes;
     }
 }
+//save create and save payroll object
+const save = ()=>{
+    try{
+        let employeePayrollData = createEmployeePayroll();
+    }catch(e){
+        return;
+    }
+}
 //onSubmit validates this function
 const createEmployeePayroll=()=>{
     let employee = new EmployeePayrollData();
@@ -117,6 +125,7 @@ const createEmployeePayroll=()=>{
         throw e;
     }
     alert(employee.toString());
+    return employee;
         
 }catch(e){
         alert(e);
