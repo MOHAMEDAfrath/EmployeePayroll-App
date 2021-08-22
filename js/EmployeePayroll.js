@@ -197,6 +197,9 @@ const resetForm=()=>{
     document.querySelector('#year').value='2021';
     setTextValue(".errDate", "");
     setTextValue("#errName", "");
+    const salary = document.querySelector("#salary");
+  const output = document.querySelector(".salary-output");
+  output.textContent = 400000;
     alert("Reseted!");
 }
 const setValue=(id,value)=>{
