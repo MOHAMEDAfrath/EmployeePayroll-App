@@ -37,12 +37,13 @@
 /* UC-16 CSS for add button and header section */
 .main-content{
     display: flex;
+    flex-direction: column;
     min-height: calc(100vh-80px);
+    background-color: #f7f7f7;
     padding: 30px 0 10px;
     box-sizing: border-box;
-    background-color: #f7f7f7f7;
 }
-.header-content{
+.inner-header-content{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,6 +80,71 @@
     text-decoration: none;
     cursor: pointer;
     margin-right: 10px;
+}
+.table-main{
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
+.table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    min-width: 800px;
+
+}
+td,th{
+    text-align: left;
+    padding:5px 8px;
+}
+th{
+    background: #42515f 0% 0% no-repeat padding-box;
+    border-radius: 3px 3px 0px 0px;
+    font-style: normal;
+    font-variant: normal;
+    font-family: Roboto;
+    font-weight: medium;
+    font-size: 18;
+    line-height: 24px;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: 0px solid #dddddd;
+}
+tr::not(:first-child){
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+
+}
+td{
+    font-style: normal;
+    font-variant: normal;
+    font-family: Roboto;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #3d3d3d;
+}
+td:first-child{
+    display: flex;
+    align-items: center;
+}
+td img:first-child{
+    margin-right: 10px;
+}
+td img{
+    cursor: pointer;
+}
+.dept-label{
+    border-color: #e9fea5;
+    border-radius: 40%;
+    width: fit-content;
+    padding:1px 7px;
+    text-align: center;
+    font-size: 14px;
+    display: inline-block;
+    font-weight: 300;
+    margin-bottom: 8px;
 }
 
 
