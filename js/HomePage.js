@@ -1,5 +1,7 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-  createInnerHtml();
+  //createInnerHtml();
+  createInnerHtmlUsingJSON();
+
 });
 
 //UC 18  Ability to view Employee Payroll details in a Tabular Format from JS File using Template Literals.
@@ -36,3 +38,62 @@ const createInnerHtml = () => {
     `;
   document.querySelector("#display-table").innerHTML = innerHTML;
 };
+// UC19 Populate using JSON Object
+const createInnerHtmlUsingJSON = () => {
+    const CreateHeaderhtml =
+      "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
+      let innerHTML = `${CreateHeaderhtml}`;
+      let empData = createEmployeePayrollJSON();
+      empData.forEach(items=>{
+          innerHTML = `${innerHTML} 
+      <tr>
+                <td><img src="${items._profilePic}" alt="" class="profile"></td>
+                <td>${items._name}</td>
+                <td>${items._gender}</td>
+                <td>${getDeptHtml(items._department)}</td>
+                  <td>${items._salary}</td>
+                <td>${items._startDate}</td>
+                <td>
+                  <img name="${items._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon">
+                  <img name="${items._id}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon">  
+                </td>
+              </tr>
+              
+      `;
+      });
+    document.querySelector("#display-table").innerHTML = innerHTML;
+  };
+  //Returns a list of JSON Object
+const createEmployeePayrollJSON = () => {
+    let empPayrollList = [
+        {
+            _name: 'RamKumar',
+            _gender: 'Male',
+            _department: ['HR','Sales'],
+            _salary: 400000,
+            _startDate: '21 Dec 2020',
+            _note: '',
+            _id: new Date().getTime(),
+            _profilePic: '../assets/profile-images/Ellipse -2.png'
+        },
+        {
+            _name: 'Dhanush',
+            _gender: 'Male',
+            _department: ['Engineering', 'Sales'],
+            _salary:350000,
+            _startDate: '10 Aug 2021',
+            _note: '',
+            _id: new Date().getTime()+1,
+            _profilePic: '../assets/profile-images/Ellipse -3.png'
+        }
+    ];
+    return empPayrollList;
+}
+//Iterates the dept to populate dept column 
+const getDeptHtml = (deptList) => {
+    let deptHtml = '';
+    for (const dept of deptList) {
+        deptHtml = `${deptHtml}<div class="dept-label">${dept}</div>`
+    }
+    return deptHtml;
+}
