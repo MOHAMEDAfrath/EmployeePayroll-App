@@ -46,7 +46,7 @@ class EmployeePayrollData {
   }
   //Validation for name using regex
   set Empname(value) {
-    let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
+    let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}([\\s]{0,1}[A-Za-z]{1,})*$");
     if (nameRegex.test(value)) {
       this._name = value;
     } else {

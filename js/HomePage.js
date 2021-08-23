@@ -1,6 +1,10 @@
+let empList;
 window.addEventListener("DOMContentLoaded", (event) => {
   //createInnerHtml();
+  empList=getEmployeePayrollFromLocalStorage();
+  document.querySelector(".emp-count").textContent = empList.length;
   createInnerHtmlUsingJSON();
+  localStorage.removeItem('editEmp');
 
 });
 
@@ -38,19 +42,24 @@ const createInnerHtml = () => {
     `;
   document.querySelector("#display-table").innerHTML = innerHTML;
 };
+//UC-20 gets from local storage
+const getEmployeePayrollFromLocalStorage=()=>
+{
+    return localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+}
 // UC19 Populate using JSON Object
 const createInnerHtmlUsingJSON = () => {
     const CreateHeaderhtml =
       "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
+      if(empList.length == 0)return;
       let innerHTML = `${CreateHeaderhtml}`;
-      let empData = createEmployeePayrollJSON();
-      empData.forEach(items=>{
+      empList.forEach(items=>{
           innerHTML = `${innerHTML} 
       <tr>
                 <td><img src="${items._profilePic}" alt="" class="profile"></td>
                 <td>${items._name}</td>
                 <td>${items._gender}</td>
-                <td>${getDeptHtml(items._department)}</td>
+                <td>${getDeptHtml(items._dept)}</td>
                   <td>${items._salary}</td>
                 <td>${items._startDate}</td>
                 <td>
