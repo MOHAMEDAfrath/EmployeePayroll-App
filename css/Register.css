@@ -25,7 +25,7 @@ body {
 .emp-text {
   letter-spacing: 0px;
   color: #82a70c;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font: normal normal bold 20px/25px Montserrat;
 }
 .emp-payroll {

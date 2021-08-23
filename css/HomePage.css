@@ -24,7 +24,7 @@
   .emp-text {
     letter-spacing: 0px;
     color: #82a70c;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font: normal normal bold 20px/25px Montserrat;
   }
   .emp-payroll {
@@ -71,7 +71,9 @@
 }
 .add-button{
     font: normal normal normal 22px/29px Roboto;
-    columns: #ffffff;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
     background: #82a70c 0% 0% no-repeat padding-box;
     border:none;
     border-radius: 5px;
@@ -82,33 +84,33 @@
     margin-right: 10px;
 }
 .table-main{
-    width: 100%;
-    margin: 0 auto;
-    overflow: auto;
+  width: 80%;
+  margin: 0 auto;
+  overflow: auto;
 }
 .table{
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 15px;
-    min-width: 800px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  min-width: 800px;
 
 }
 td,th{
-    text-align: left;
-    padding:5px 8px;
+  text-align: left;
+  padding:5px 8px;
 }
 th{
-    background: #42515f 0% 0% no-repeat padding-box;
-    border-radius: 3px 3px 0px 0px;
-    font-style: normal;
-    font-variant: normal;
-    font-family: Roboto;
-    font-weight: medium;
-    font-size: 18;
-    line-height: 24px;
-    color: #ffffff;
-    text-transform: uppercase;
-    border: 0px solid #dddddd;
+  background: #42515f 0% 0% no-repeat padding-box;
+  border-radius: 3px 3px 0px 0px;
+  font-style: normal;
+  font-variant: normal;
+  font-family: Roboto;
+  font-weight: medium;
+  font-size: 18;
+  line-height: 24px;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 0px solid #dddddd;
 }
 tr::not(:first-child){
     background: #ffffff 0% 0% no-repeat padding-box;
@@ -130,22 +132,18 @@ td:first-child{
     align-items: center;
 }
 td img:first-child{
-    margin-right: 10px;
+    margin: 0 5px 0 7%;
 }
 td img{
-    cursor: pointer;
+    cursor: pointee;
 }
 .dept-label{
-    border-color: #e9fea5;
-    border-radius: 40%;
-    width: fit-content;
-    padding:1px 7px;
-    text-align: center;
-    font-size: 14px;
-    display: inline-block;
-    font-weight: 300;
-    margin-bottom: 8px;
+  background-color: #e9fea5;;
+  border-radius: 13px;
+  width: fit-content;
+  padding:1px 7px;
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 8px;
 }
-
-
-  
