@@ -127,6 +127,7 @@ td{
     font-size: 14px;
     line-height: 21px;
     color: #3d3d3d;
+    background-color: #ffffff;
 }
 td:first-child{
     display: flex;
@@ -148,4 +149,7 @@ td img{
   display: inline-block;
   margin-bottom: 8px;
   margin-right: 5px;
+}
+#icon{
+  margin-right: 15px;
 }
