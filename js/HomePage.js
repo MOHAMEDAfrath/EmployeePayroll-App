@@ -62,8 +62,8 @@ const createInnerHtmlUsingJSON = () => {
                   <td>${items._salary}</td>
                 <td>${items._startDate}</td>
                 <td>
-                  <img name="${items._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon">
-                  <img name="${items._id}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon">  
+                  <img name="${items._name}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon" onclick="remove(this)">
+                  <img name="${items._name}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon">  
                 </td>
               </tr>
               
@@ -104,4 +104,16 @@ const getDeptHtml = (deptList) => {
         deptHtml = `${deptHtml}<div class="dept-label">${dept}</div>`
     }
     return deptHtml;
+}
+// removes the element once a click is made on the delete icon
+const remove= (node) =>
+{
+  let employeePayrollData=empList.find(empData => empData._name == node.name);
+  if(!employeePayrollData) return ;
+  const index= empList.map(empData => empData._name)
+  .indexOf(employeePayrollData._name);
+  empList.splice(index,1);
+  localStorage.setItem("EmployeePayrollList",JSON.stringify(empList));
+  document.querySelector(".emp-count").textContent=empList.length;
+  createInnerHtmlUsingJSON();
 }
