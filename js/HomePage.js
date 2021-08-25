@@ -5,7 +5,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   document.querySelector(".emp-count").textContent = empList.length;
   createInnerHtmlUsingJSON();
   localStorage.removeItem('editEmp');
-
 });
 
 //UC 18  Ability to view Employee Payroll details in a Tabular Format from JS File using Template Literals.
@@ -63,8 +62,8 @@ const createInnerHtmlUsingJSON = () => {
                   <td>${items._salary}</td>
                 <td>${stringifyDate(items._startDate)}</td>
                 <td>
-                  <img name="${items._name}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon" onclick="remove(this)">
-                  <img name="${items._name}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon" onclick="update(this)">  
+                  <img id="${items._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon" onclick="remove(this)">
+                  <img id="${items._id}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon" onclick="update(this)">  
                 </td>
               </tr>
               
@@ -109,7 +108,7 @@ const getDeptHtml = (deptList) => {
 // removes the element once a click is made on the delete icon
 const remove= (node) =>
 {
-  let employeePayrollData=empList.find(empData => empData._name == node.name);
+  let employeePayrollData=empList.find(empData => empData._id == node.id);
   if(!employeePayrollData) return ;
   const index= empList.map(empData => empData._name)
   .indexOf(employeePayrollData._name);
@@ -119,7 +118,7 @@ const remove= (node) =>
   createInnerHtmlUsingJSON();
 }
 const update=(node)=>{
-  let empPayrollData = empList.find(empData=>empData._name==node.name);
+  let empPayrollData = empList.find(empData=>empData._id==node.id);
   if(!empPayrollData)return;
   localStorage.setItem('editEmp',JSON.stringify(empPayrollData));
   window.location.replace(site_properties.add_page);

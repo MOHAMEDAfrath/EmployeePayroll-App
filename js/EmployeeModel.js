@@ -1,6 +1,12 @@
 // EmployeePayroll Data Model
 class EmployeePayrollData {
     // Added properties like gender,prfoile pic,notes,department
+    get id(){
+        return this._id;
+    }
+    set id(value){
+        this._id=value;
+    }
     get Empname() {
       return this._name;
     }
