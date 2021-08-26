@@ -1,67 +1,32 @@
 {
   "EmployeePayrollDB": [
     {
-      "id": 1,
-      "_fullname": "Mark Henry",
+      "_fullname": "Dhanush Rajprasad",
+      "_profilePic": "../assets/profile-images/Ellipse -8.png",
+      "_salary": "400000",
+      "_startDate": "10 August 2021",
       "_gender": "Male",
       "_dept": [
+        "HR",
+        "Sales",
         "Finance"
       ],
-      "_salary": "500000",
-      "_startDate": "29 October 2019",
-      "_note": "All In One",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png",
-      "_notes": "All In One"
-    },
-    {
-      "id": 2,
-      "_fullname": "Bill Gates",
-      "_gender": "Male",
-      "_dept": [
-        "Engineering"
-      ],
-      "_salary": "500000",
-      "_startDate": "29 August 2019",
-      "_notes": "Terrific Engineer",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png"
-    },
-    {
-      "_fullname": "Ram Kumar",
-      "_gender": "Female",
-      "_dept": [
-        "Sales"
-      ],
-      "_salary": "400000",
-      "_startDate": "20 July 2019",
-      "_notes": "",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_notes": "Like to drive!",
       "id": 3
     },
     {
-      "_fullname": "Mohamed Afrath",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png",
-      "_salary": "480200",
-      "_startDate": "6 August 2021",
+      "_fullname": "Sathish",
+      "_profilePic": "../assets/profile-images/Ellipse -2.png",
+      "_salary": "500000",
+      "_startDate": "13 August 2021",
       "_gender": "Male",
       "_dept": [
         "HR",
-        "Sales"
+        "Sales",
+        "Engineer"
       ],
-      "_notes": "hello",
+      "_notes": "hello!",
       "id": 4
-    },
-    {
-      "_fullname": "Priya",
-      "_profilePic": "../assets/profile-images/Ellipse -7.png",
-      "_salary": "347100",
-      "_startDate": "16 August 2021",
-      "_gender": "Female",
-      "_dept": [
-        "HR",
-        "Sales"
-      ],
-      "_notes": "poll",
-      "id": 5
     }
   ]
 }

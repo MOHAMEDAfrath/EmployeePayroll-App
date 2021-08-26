@@ -125,7 +125,7 @@ const getDeptHtml = (deptList) => {
     }
     return deptHtml;
 }
-// removes the element once a click is made on the delete icon
+// removes the element once a click is made on the delete icon checks for local / server
 const remove= (node) =>
 {
   let employeePayrollData=empList.find(empData => empData.id == node.id);
@@ -133,9 +133,18 @@ const remove= (node) =>
   const index= empList.map(empData => empData._fullname)
   .indexOf(employeePayrollData._fullname);
   empList.splice(index,1);
+  if(site_properties.use_local.match("true")){
   localStorage.setItem("EmployeePayrollList",JSON.stringify(empList));
   document.querySelector(".emp-count").textContent=empList.length;
   createInnerHtmlUsingJSON();
+  }else{
+    const delUrl = site_properties.server_url+employeePayrollData.id.toString();
+    makePromiseCall("DELETE",delUrl,false).then(responseText=>{
+      createInnerHtmlUsingJSON();
+    }).catch(error=>{
+      console.log("Del Err: "+JSON.stringify(error));
+    })
+  }
 }
 const update=(node)=>{
   let empPayrollData = empList.find(empData=>empData.id==node.id);

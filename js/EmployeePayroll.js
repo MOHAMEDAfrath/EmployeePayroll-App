@@ -72,7 +72,7 @@ const createorUpdateServer=()=>{
     resetForm();
     window.location.replace(site_properties.home_page);
   }).catch(error=>{
-    throw console.error;
+    throw error;
   })
 }
 const setEmployeePayrollObject=()=>{
