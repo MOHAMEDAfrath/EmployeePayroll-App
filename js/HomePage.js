@@ -62,8 +62,8 @@ const createInnerHtmlUsingJSON = () => {
                   <td>${items._salary}</td>
                 <td>${stringifyDate(items._startDate)}</td>
                 <td>
-                  <img id="${items._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon" onclick="remove(this)">
-                  <img id="${items._id}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon" onclick="update(this)">  
+                  <img id="${items.id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" id="icon" onclick="remove(this)">
+                  <img id="${items.id}" src="../assets/icons/create-black-18dp.svg" alt="create" id="icon" onclick="update(this)">  
                 </td>
               </tr>
               
@@ -81,7 +81,7 @@ const createEmployeePayrollJSON = () => {
             _salary: 400000,
             _startDate: '21 Dec 2020',
             _note: '',
-            _id: new Date().getTime(),
+            id: new Date().getTime(),
             _profilePic: '../assets/profile-images/Ellipse -2.png'
         },
         {
@@ -91,7 +91,7 @@ const createEmployeePayrollJSON = () => {
             _salary:350000,
             _startDate: '10 Aug 2021',
             _note: '',
-            _id: new Date().getTime()+1,
+            id: new Date().getTime()+1,
             _profilePic: '../assets/profile-images/Ellipse -3.png'
         }
     ];
@@ -108,7 +108,7 @@ const getDeptHtml = (deptList) => {
 // removes the element once a click is made on the delete icon
 const remove= (node) =>
 {
-  let employeePayrollData=empList.find(empData => empData._id == node.id);
+  let employeePayrollData=empList.find(empData => empData.id == node.id);
   if(!employeePayrollData) return ;
   const index= empList.map(empData => empData._name)
   .indexOf(employeePayrollData._name);
@@ -118,7 +118,7 @@ const remove= (node) =>
   createInnerHtmlUsingJSON();
 }
 const update=(node)=>{
-  let empPayrollData = empList.find(empData=>empData._id==node.id);
+  let empPayrollData = empList.find(empData=>empData.id==node.id);
   if(!empPayrollData)return;
   localStorage.setItem('editEmp',JSON.stringify(empPayrollData));
   window.location.replace(site_properties.add_page);

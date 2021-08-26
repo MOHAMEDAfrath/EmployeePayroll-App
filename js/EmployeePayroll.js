@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return;
     }
     try {
-      new EmployeePayrollData().Empname = name.value;
+      checkName(name.value);
       setTextValue("#errName", "");
     } catch (e) {
       setTextValue("#errName", e);
@@ -32,16 +32,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
       " " +
       getInputValue("year");
     try {
-      new EmployeePayrollData().startDate = new Date(Date.parse(startDate));
+     checkStartDate(new Date(Date.parse(startDate)));
       setTextValue(".errDate", "");
     } catch (e) {
       setTextValue(".errDate", e);
     }
   });
+  document.querySelector('.cancelButton').href=site_properties.home_page;
   checkForUpdate();
 });
 
+const checkName = (name)=>{
+  let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}([\\s]{0,1}[A-Za-z]{1,})*$");
+  if(!nameRegex.test(name))throw 'Invalid Name';
+}
+const checkStartDate = (startDate)=>{
+  if (startDate > new Date()) throw "Start Date is a future date";
+      var diff = Math.abs(new Date().getTime() - startDate.getTime());
+      if (diff / (1000 * 60 * 60 * 24) > 30) throw "Start Date is Beyond 30 days";
 
+}
 //save create and save payroll object
 const save = (event) => {
   try {
@@ -55,6 +65,7 @@ const save = (event) => {
   }
 };
 const setEmployeePayrollObject=()=>{
+  if(!isUpdate)employeePayrollObj.id = createNewEmployeeId();
   employeePayrollObj._name=getInputValue('name');
   employeePayrollObj._profilePic = getSelectedValues("[name = profile]").pop();
   employeePayrollObj._salary = getInputValue("salary");
@@ -74,15 +85,15 @@ const createorUpdateLocal = () => {
   //JSON Object
   let employeeList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
   if(employeeList){
-    let empPayData = employeeList.find(empData=>empData._id == employeePayrollObj._id);
+    let empPayData = employeeList.find(empData=>empData.id == employeePayrollObj.id);
     if(!empPayData){
-      employeeList.push(createNewEmployeePayroll());
+      employeeList.push(employeePayrollObj);
     }else{
-      const index = employeeList.map(empData=>empData._id).indexOf(empPayData._id);
-      employeeList.splice(index,1,createNewEmployeePayroll(empPayData._id));
+      const index = employeeList.map(empData=>empData.id).indexOf(empPayData.id);
+      employeeList.splice(index,1,employeePayrollObj);
     }
   }else{
-    employeeList = [createNewEmployeePayroll()];
+    employeeList = [employeePayrollObj];
   }
   //JSON to String
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeeList));
