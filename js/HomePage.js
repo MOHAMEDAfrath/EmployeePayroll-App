@@ -1,10 +1,11 @@
 let empList;
 window.addEventListener("DOMContentLoaded", (event) => {
   //createInnerHtml();
-  empList=getEmployeePayrollFromLocalStorage();
-  document.querySelector(".emp-count").textContent = empList.length;
-  createInnerHtmlUsingJSON();
-  localStorage.removeItem('editEmp');
+  if(site_properties.use_local.match("true"))
+  getEmployeePayrollFromLocalStorage();
+  else
+  getEmployeePayrollFromServer();
+  
 });
 
 //UC 18  Ability to view Employee Payroll details in a Tabular Format from JS File using Template Literals.
@@ -41,10 +42,29 @@ const createInnerHtml = () => {
     `;
   document.querySelector("#display-table").innerHTML = innerHTML;
 };
+const processResponse = () =>{
+  document.querySelector(".emp-count").textContent = empList.length;
+  createInnerHtmlUsingJSON();
+  localStorage.removeItem('editEmp');
+}
 //UC-20 gets from local storage
 const getEmployeePayrollFromLocalStorage=()=>
 {
-    return localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+    empList = localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+    processResponse();
+
+}
+//UC25_promise call to perform get operation
+const getEmployeePayrollFromServer=()=>{
+    makePromiseCall("GET",site_properties.server_url,true).
+    then(responseText=>{
+      empList = JSON.parse(responseText);
+      processResponse();
+    }).catch(error=>{
+      console.log("Get error Status: "+JSON.stringify(error));
+      empList=[];
+      processResponse();
+    })
 }
 // UC19 Populate using JSON Object
 const createInnerHtmlUsingJSON = () => {
@@ -56,7 +76,7 @@ const createInnerHtmlUsingJSON = () => {
           innerHTML = `${innerHTML} 
       <tr>
                 <td><img src="${items._profilePic}" alt="" class="profile"></td>
-                <td>${items._name}</td>
+                <td>${items._fullname}</td>
                 <td>${items._gender}</td>
                 <td>${getDeptHtml(items._dept)}</td>
                   <td>${items._salary}</td>
@@ -110,8 +130,8 @@ const remove= (node) =>
 {
   let employeePayrollData=empList.find(empData => empData.id == node.id);
   if(!employeePayrollData) return ;
-  const index= empList.map(empData => empData._name)
-  .indexOf(employeePayrollData._name);
+  const index= empList.map(empData => empData._fullname)
+  .indexOf(employeePayrollData._fullname);
   empList.splice(index,1);
   localStorage.setItem("EmployeePayrollList",JSON.stringify(empList));
   document.querySelector(".emp-count").textContent=empList.length;

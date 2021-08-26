@@ -41,17 +41,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   document.querySelector('.cancelButton').href=site_properties.home_page;
   checkForUpdate();
 });
-
-const checkName = (name)=>{
-  let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}([\\s]{0,1}[A-Za-z]{1,})*$");
-  if(!nameRegex.test(name))throw 'Invalid Name';
-}
-const checkStartDate = (startDate)=>{
-  if (startDate > new Date()) throw "Start Date is a future date";
-      var diff = Math.abs(new Date().getTime() - startDate.getTime());
-      if (diff / (1000 * 60 * 60 * 24) > 30) throw "Start Date is Beyond 30 days";
-
-}
 //save create and save payroll object
 const save = (event) => {
   try {
@@ -66,7 +55,7 @@ const save = (event) => {
 };
 const setEmployeePayrollObject=()=>{
   if(!isUpdate)employeePayrollObj.id = createNewEmployeeId();
-  employeePayrollObj._name=getInputValue('name');
+  employeePayrollObj._fullname=getInputValue('name');
   employeePayrollObj._profilePic = getSelectedValues("[name = profile]").pop();
   employeePayrollObj._salary = getInputValue("salary");
     let date =
@@ -207,7 +196,7 @@ const checkForUpdate=()=>{
 }
 //set form for updation
 const setForm=()=>{
-  setValue('#name',employeePayrollObj._name);
+  setValue('#name',employeePayrollObj._fullname);
   setSelectedValue('[name=profile]',employeePayrollObj._profilePic);
       setSelectedValue('[name=gender]',employeePayrollObj._gender);
       setSelectedValue('[name=department]',employeePayrollObj._dept);
