@@ -130,8 +130,8 @@ const remove= (node) =>
 {
   let employeePayrollData=empList.find(empData => empData.id == node.id);
   if(!employeePayrollData) return ;
-  const index= empList.map(empData => empData._fullname)
-  .indexOf(employeePayrollData._fullname);
+  const index= empList.map(empData => empData.id)
+  .indexOf(employeePayrollData.id);
   empList.splice(index,1);
   if(site_properties.use_local.match("true")){
   localStorage.setItem("EmployeePayrollList",JSON.stringify(empList));

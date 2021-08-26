@@ -1,20 +1,6 @@
 {
   "EmployeePayrollDB": [
     {
-      "_fullname": "Dhanush Rajprasad",
-      "_profilePic": "../assets/profile-images/Ellipse -8.png",
-      "_salary": "400000",
-      "_startDate": "10 August 2021",
-      "_gender": "Male",
-      "_dept": [
-        "HR",
-        "Sales",
-        "Finance"
-      ],
-      "_notes": "Like to drive!",
-      "id": 3
-    },
-    {
       "_fullname": "Sathish",
       "_profilePic": "../assets/profile-images/Ellipse -2.png",
       "_salary": "500000",
