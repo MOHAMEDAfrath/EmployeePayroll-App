@@ -1,18 +1,30 @@
 {
   "EmployeePayrollDB": [
     {
-      "_fullname": "Sathish",
-      "_profilePic": "../assets/profile-images/Ellipse -2.png",
-      "_salary": "500000",
-      "_startDate": "13 August 2021",
+      "_fullname": "Mohamed Afrath S",
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_salary": "444200",
+      "_startDate": "1 August 2021",
       "_gender": "Male",
       "_dept": [
         "HR",
-        "Sales",
         "Engineer"
       ],
-      "_notes": "hello!",
-      "id": 4
+      "_notes": "hi",
+      "id": 1
+    },
+    {
+      "_fullname": "Priya",
+      "_profilePic": "../assets/profile-images/Ellipse -7.png",
+      "_salary": "500000",
+      "_startDate": "5 August 2021",
+      "_gender": "Female",
+      "_dept": [
+        "HR",
+        "Sales"
+      ],
+      "_notes": "jjj",
+      "id": 2
     }
   ]
 }
