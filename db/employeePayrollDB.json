@@ -2,16 +2,16 @@
   "EmployeePayrollDB": [
     {
       "id": 1,
-      "_fullname": "Mark",
+      "_fullname": "Mark Henry",
       "_gender": "Male",
       "_dept": [
-        "Engineering",
         "Finance"
       ],
       "_salary": "500000",
       "_startDate": "29 October 2019",
       "_note": "All In One",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png"
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_notes": "All In One"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       ],
       "_salary": "500000",
       "_startDate": "29 August 2019",
-      "_note": "Terrific Engineer",
+      "_notes": "Terrific Engineer",
       "_profilePic": "../assets/profile-images/Ellipse -1.png"
     },
     {
@@ -33,9 +33,35 @@
       ],
       "_salary": "400000",
       "_startDate": "20 July 2019",
-      "_note": "",
-      "_profilePic": "../assets/profile-images/Ellipse -2.png",
+      "_notes": "",
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
       "id": 3
+    },
+    {
+      "_fullname": "Mohamed Afrath",
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_salary": "480200",
+      "_startDate": "6 August 2021",
+      "_gender": "Male",
+      "_dept": [
+        "HR",
+        "Sales"
+      ],
+      "_notes": "hello",
+      "id": 4
+    },
+    {
+      "_fullname": "Priya",
+      "_profilePic": "../assets/profile-images/Ellipse -7.png",
+      "_salary": "347100",
+      "_startDate": "16 August 2021",
+      "_gender": "Female",
+      "_dept": [
+        "HR",
+        "Sales"
+      ],
+      "_notes": "poll",
+      "id": 5
     }
   ]
 }

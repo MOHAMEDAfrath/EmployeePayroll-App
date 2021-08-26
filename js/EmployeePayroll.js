@@ -43,18 +43,40 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 //save create and save payroll object
 const save = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
   try {
     setEmployeePayrollObject();
+    if(site_properties.use_local.match("true")){
     createorUpdateLocal();
     resetForm();
     window.location.replace(site_properties.home_page);
+    }else{
+      createorUpdateServer();
+    }
   } catch (e) {
     alert(e);
     return;
   }
 };
+//UC-26: creates or updates the server
+const createorUpdateServer=()=>{
+  let postUrl = site_properties.server_url;
+  let methodType = "POST";
+  if(isUpdate){
+    methodType = "PUT";
+    postUrl = postUrl+employeePayrollObj.id.toString();
+  }
+  makePromiseCall(methodType,postUrl,true,employeePayrollObj).then
+  (responseText=>{
+    resetForm();
+    window.location.replace(site_properties.home_page);
+  }).catch(error=>{
+    throw console.error;
+  })
+}
 const setEmployeePayrollObject=()=>{
-  if(!isUpdate)employeePayrollObj.id = createNewEmployeeId();
+  if(!isUpdate && site_properties.use_local.match("true"))employeePayrollObj.id = createNewEmployeeId();
   employeePayrollObj._fullname=getInputValue('name');
   employeePayrollObj._profilePic = getSelectedValues("[name = profile]").pop();
   employeePayrollObj._salary = getInputValue("salary");
